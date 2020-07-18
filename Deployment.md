@@ -42,11 +42,11 @@ composer remove --dev beyondcode/laravel-dump-server
 Now your application is ready to be deployed to App Engine.
 
 * Once done, run the below command to deploy the app on App Engine.
-** initialise google cloud with the right account and project setup
+  * Initialise google cloud with the right account and project setup
 ```
 gcloud init
 ```
-** deploy the application to google cloud app engine standard, the 
+  * deploy the application to google cloud app engine standard, the 
 
 ```
 gcloud app deploy
