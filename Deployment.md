@@ -43,14 +43,16 @@ Now your application is ready to be deployed to App Engine.
 
 * Once done, run the below command to deploy the app on App Engine.
   * Initialise google cloud with the right account and project setup
-```
-gcloud init
-```
+    ```
+    gcloud init
+    ```
   * deploy the application to google cloud app engine standard, the 
 
-```
-gcloud app deploy
-```
+    ```
+    gcloud app deploy
+    ```
+
+The application should be live and access the project app instance url ex: https://projxxxxx.el.r.appspot.com
 
 ### Enable APIs and Create New Service account
 * 
