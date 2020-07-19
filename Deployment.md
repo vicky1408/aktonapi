@@ -124,3 +124,7 @@ env_variables:
 gcloud app deploy
 ```
 * Check the Project URL to fetch API details from DB. ex: https://projxxxxx.el.r.appspot.com/api/v1/users
+
+**References**
+* https://www.cloudbooklet.com/deploy-laravel-on-google-app-engine-standard/
+* https://cloud.google.com/community/tutorials/run-laravel-on-appengine-standard
