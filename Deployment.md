@@ -46,7 +46,7 @@ Now your application is ready to be deployed to App Engine.
     ```
     gcloud init
     ```
-  * deploy the application to google cloud app engine standard, the 
+  * deploy the application to google cloud app engine standard
 
     ```
     gcloud app deploy
@@ -55,4 +55,72 @@ Now your application is ready to be deployed to App Engine.
 The application should be live and access the project app instance url ex: https://projxxxxx.el.r.appspot.com
 
 ### Enable APIs and Create New Service account
-* 
+* Go to APIs and Services and click Enable APIs and Services and enable 
+```
+Cloud SQL API 
+Cloud SQL Admin API
+```
+* Go to IAM & Admin >> Service accounts and click Create service account
+  * Step 1: Enter Service Account Name
+  * Step 2: Provide necessary details and click create.
+  * Step 3: Create the key once the account is created. Choose Keytype as JSON
+  
+### Install Cloud SQL Proxy in Local Machine
+* Follow the instructions to install the [Cloud SQL proxy client on your local machine](https://cloud.google.com/sql/docs/mysql/connect-external-app#install). The Cloud SQL proxy is used to connect to your Cloud SQL instance when running locally.
+* Start the Cloud SQL proxy and replace CLOUDSQL_CONNECTION_NAME with the connection name of your Cloud SQL Instance.
+* You can get the connection name from your Cloud SQL Dashboard.
+![Image of Cloud SQL Connection Instance](https://github.com/vicky1408/aktonapi/blob/master/CloudSQL.png)
+* Run the below command
+```
+./cloud_sql_proxy -instances=CLOUDSQL_CONNECTION_NAME=tcp:3306
+```
+  * Somtimes, the above command may throw error, if you have a MySQL Instance running already. In that case, stop the local MySQL as per the below,
+    * Error : listen tcp 127.0.0.1:3306: bind: address already in use
+    ```
+    sudo netstat -nlpt |grep 3306
+    sudo service mysql stop
+    ```
+* Once the connection is established, you may see something similar to below:
+```
+Listening on 127.0.0.1:3306 for CLOUDSQL_CONNECTION_NAME
+Ready for new connections
+```
+* Now edit your .env file and update the database details.
+```
+DB_DATABASE=CLOUD_SQL_DATABASE_NAME
+DB_USERNAME=CLOUD_SQL_USERNAME
+DB_PASSWORD=CLOUD_SQL_PASSWORD
+```
+* Important: Open a new command prompt and navigate to your Laravel’s root directory and run the database migrations for Laravel.
+```
+php artisan migrate --force
+```
+* If the migrations are completed successfully, you will see the output similar to the one below.
+```
+Migration table created successfully.
+Migrating: 2014_10_12_000000_create_users_table
+Migrated:  2014_10_12_000000_create_users_table
+```
+
+Now you can deploy your Laravel application to App Engine.
+
+### Deploy Application with CloudSQL Connection
+* Edit your app.yaml and update the Cloud SQL details.
+```
+runtime: php72
+
+env_variables:
+   APP_KEY: YOUR_APP_KEY
+   APP_STORAGE: /tmp
+   CACHE_DRIVER: database
+   SESSION_DRIVER: database
+   DB_DATABASE: CLOUD_SQL_DATABASE_NAME
+   DB_USERNAME: CLOUD_SQL_USERNAME
+   DB_PASSWORD: CLOUD_SQL_PASSWORD
+   DB_SOCKET: "/cloudsql/CLOUDSQL_CONNECTION_NAME"
+```
+* Once done, run the below command to deploy the app on App Engine.
+```
+gcloud app deploy
+```
+* Check the Project URL to fetch API details from DB. ex: https://projxxxxx.el.r.appspot.com/api/v1/users
