@@ -17,4 +17,3 @@
 * name (screen 1)
 * gender (screen 1)
 * location (screen 1) - Automatically picked up
-* OTP (screen 2)
