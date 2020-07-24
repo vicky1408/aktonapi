@@ -1,19 +1,21 @@
 **Login:**
-* mobile number (screen 1)
+* mobile number (screen 1) 
+  * checkUserRegistered - do validation for existing mobile number check
 * password (screen 2)
-* Login
+* Login (button)
+  * loginValidation
 * forgot password - send password reset to email
 
 **Register:**
-* mobile number (screen 1) 
-* get otp button
+* mobile number (screen 1)  
+  * checkUserRegistered - do validation for existing mobile number check
+* Get OTP (button)
 * OTP (screen 2)
-* submit (wait for 10 seconds)
-* Login without OTP
-* mobile number (screen 1) - do validation for existing mobile number check
-* nickname (screen 1) - do validation for existing nickname check
+* submit (button - wait for 10 seconds)
+* Login without OTP (button)
+* nickname (screen 3) - do validation for existing nickname check
 * email - autopickup
 * password
-* name (screen 1)
-* gender (screen 1)
-* location (screen 1) - Automatically picked up
+* name (screen 3)
+* gender (screen 3)
+* location (screen 3) - Automatically picked up
