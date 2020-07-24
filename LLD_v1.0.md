@@ -8,7 +8,7 @@
 * mobile number (screen 1) 
 * get otp button
 * OTP (screen 2)
-* submit
+* submit (wait for 10 seconds)
 * Login without OTP
 * mobile number (screen 1) - do validation for existing mobile number check
 * nickname (screen 1) - do validation for existing nickname check
