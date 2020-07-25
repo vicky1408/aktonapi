@@ -22,8 +22,9 @@
 
 **landing page latest video**
 * swipe up/down - random videos
- * should mark the videos as seen and then do not show to the user
- * if all videos are seen, then ignore the above rule
+  * should mark the videos as seen and then do not show to the user
+  * if all videos are seen, then ignore the above rule
+
 
 * add video - right corner
 * boxed with border - categories
