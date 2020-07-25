@@ -25,8 +25,10 @@
  * should mark the videos as seen and then do not show to the user
  * if all videos are seen, then ignore the above rule
 
-add video - right corner
-boxed with border - categories
-right top - my profile
-left bottom - other user
+* add video - right corner
+* boxed with border - categories
+* right top - my profile
+* left bottom - other user
+
+* play and upload video only for 60 seconds 
 
