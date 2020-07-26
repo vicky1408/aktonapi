@@ -1,10 +1,11 @@
 **Login:**
 * mobile number (screen 1) 
   * checkUserRegistered - do validation for existing mobile number check
-* password (screen 2)
+* password (screen 2) 
 * Login (button)
-  * loginValidation
-* forgot password - send password reset to email
+  * login - do LoginValidation
+* forgot password - send password reset to email 
+  * **email smtp to be done**
 
 **Register:**
 * mobile number (screen 1)  
@@ -14,6 +15,7 @@
 * submit (button - wait for 10 seconds)
 * Login without OTP (button)
 * nickname (screen 3) - do validation for existing nickname check
+  * **alpha_num to be verified**
 * email - autopickup
 * password
 * name (screen 3)
